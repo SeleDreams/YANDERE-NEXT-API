@@ -1,4 +1,4 @@
-local YandereNext = require('yn')
+YandereNext = loadfile(PluginsDir .. "\\scripts\\yn_plugin.lua")()
 
 -- First function called, it's called when the game starts, useful to initialize some variables
 function Awake()
@@ -12,12 +12,12 @@ end
 
 -- This function is called every frame
 function Update()
-    YandereNext.Update()
+   -- YandereNext.Update()
 end
 
 -- this function is called every time a scene is loaded in memory
-function OnSceneLoaded(name,mode)
-    YandereNext.OnSceneLoaded(name,mode)
+function OnSceneLoaded(name, mode)
+    YandereNext.OnSceneLoaded(name, mode)
 end
 
 -- this function is called every time a scene is unloaded from memory

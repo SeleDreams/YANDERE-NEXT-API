@@ -4,7 +4,6 @@ function LoadingScene.Awake()
 end
 
 function LoadingScene.Start()
-    Console.Log("It worked")
 end
 
 function LoadingScene.Update()
