@@ -84,7 +84,7 @@ end
 -- This function is automatically executed every frame
 function YN.Update()
   if (Input.GetKeyUp("n")) then
-    --Console.ToggleLog()
+    LogConsole.log = not LogConsole.log;
   end
   YN.UpdateSceneScripts()
 end

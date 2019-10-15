@@ -12,7 +12,7 @@ end
 
 -- This function is called every frame
 function Update()
-   -- YandereNext.Update()
+   YandereNext.Update()
 end
 
 -- this function is called every time a scene is loaded in memory
