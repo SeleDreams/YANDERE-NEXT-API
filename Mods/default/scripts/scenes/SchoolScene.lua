@@ -9,6 +9,7 @@ function SchoolScene.ActivateSecretCharacters()
         for k,v in pairs(result) do
             v.SetActive(true)
             YandereNext.Tools.SetAllChildren(v,true,false)
+            
         end
     end
 end
