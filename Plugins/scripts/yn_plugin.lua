@@ -46,7 +46,12 @@ function YN.OnSceneLoaded(scene_name, mode)
     print("Loaded " .. scene_name)
   end
   -- Loads scene script
-  local tempObject = {name = scene_name, script = loadfile(ModDir .. "\\scripts\\scenes\\" .. scene_name .. ".lua")()}
+  --local path = ModDir .. "\\scripts\\scenes\\" .. scene_name .. ".lua"
+  if package.loaded["scenes." .. scene_name] ~= nil then
+    package.loaded["scenes." .. scene_name] = nil
+    Debug.Log("Reloaded")
+  end
+  local tempObject = {name = scene_name, script = require("scenes." .. scene_name)}
   if tempObject.script ~= nil then
     SceneScripts[scene_name] = tempObject
   end

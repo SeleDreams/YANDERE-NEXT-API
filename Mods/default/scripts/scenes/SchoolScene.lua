@@ -12,13 +12,24 @@ function SchoolScene.ActivateSecretCharacters()
         end
     end
 end
-    
+local YanChan = nil
+local Osoro = nil
+function SchoolScene.FindYanChanPos() 
+    YanChan = GameObject.Find("YandereChan")
+    Osoro = GameObject.Find("FakeOsoro")
+end
 
 function SchoolScene.Start()
     SchoolScene.ActivateSecretCharacters()
+    SchoolScene.FindYanChanPos()
 end
 
 function SchoolScene.Update()
+    if YanChan ~= nil then
+        if Input.GetKey("m") then
+            Osoro.transform.position = YanChan.transform.position
+        end
+    end
 end
 
 function SchoolScene.OnSceneLoaded()
