@@ -5,7 +5,7 @@ function WelcomeScene.Awake()
 end
 
 function WelcomeScene.Start()
-  SceneManager.LoadScene("LoadingScene")
+  --  SceneManager.LoadScene("LoadingScene")
 end
 
 function WelcomeScene.Update()
