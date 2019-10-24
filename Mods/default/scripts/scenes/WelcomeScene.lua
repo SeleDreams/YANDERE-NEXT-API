@@ -1,6 +1,6 @@
 
 local WelcomeScene = {}
-
+mode = nil
 function WelcomeScene.Awake()
 end
 

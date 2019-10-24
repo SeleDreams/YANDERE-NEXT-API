@@ -2,6 +2,7 @@ local SchoolScene = {}
 
 local Osoro = nil
 local YanChan = nil
+FakeOsana = nil
 function SchoolScene.Awake()
 end
 
@@ -19,28 +20,65 @@ end
 function SchoolScene.FindYanAndOsoro()
     -- THIS IS WHERE IT FINDS YANDERE CHAN AND OSORO
     Osoro = GameObject.Find("DisabledCharacters/FakeOsoro")
-    YanChan = GameObject.Find("YandereChan")
+    YanChan = GameObject.Find("YandereChan/Character")
+    if Osoro == nil then
+        Debug.Log("Osoro is null")
+    end
+    if YanChan == nil then
+        Debug.Log("Yan chan is null")
+    end
     --Osoro = GetStudent(1)
 end
 
 function SchoolScene.RetargetDem()
-    Debug.Log("Started retargetting")
-    local result = ModelRetarget.RetargetModel(Osoro,YanChan,"Hips")
+    ModelRetarget.RetargetModel(Osoro,YanChan,true)
     SetHairstyle(0)
-    Debug.Log("Result is " .. result)
 end
 
+kokona = nil
+realkokona = nil
+local osana = nil
 
+function SchoolScene.RetargetOsana()
+    local kokonatransform = kokona.transform
+    realkokona = kokonatransform.Find("Character")
+    if kokoobject == nil then
+        Debug.Log("kokona null")
+    end
+    if osana == nil then
+        Debug.Log("osana null")
+    end
+    FakeOsana = Object.Instantiate(osana)
+    FakeOsana.transform.SetParent(nil)
+    ModelRetarget.RetargetModel(osana,realkokona.gameObject)
+end
 
 function SchoolScene.Start()
+    if FakeOsana ~= nil then
+        Object.Destroy(FakeOsana)
+    end
     SchoolScene.ActivateSecretCharacters()
     SchoolScene.FindYanAndOsoro()
     SchoolScene.RetargetDem()
     SetPersona(2)
 end
 
+local done = false
 function SchoolScene.Update()
-    
+    if done == false then
+        if kokona == nil then
+            kokona = GetStudent(30)
+        else
+            done = true
+            osana = GameObject.Find("FakeOsana")
+            SchoolScene.RetargetOsana()
+        end
+    end
+
+    if done and Input.GetKeyUp("b") then
+        Object.DontDestroyOnLoad(FakeOsana)
+        SceneManager.LoadScene("StreetScene")
+    end
    -- PrintInfo()
 end
 
