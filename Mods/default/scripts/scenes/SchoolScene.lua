@@ -1,46 +1,49 @@
 local SchoolScene = {}
 
-local Osoro = nil
+local Senpai = nil
 local YanChan = nil
-function SchoolScene.Awake()
-end
-
-function SchoolScene.ActivateSecretCharacters()
-    -- THIS IS WHERE THE HIDDEN CHARACTERS ARE ACTIVATED, SO IF YOU WANT TO ACTIVATE ANY OBJECT JUST FIND IT IN ASSETSTUDIO AND REPLACE THE NAME "DisabledCharacters"
-    local result = FindHiddenObjects("DisabledCharacters")
-    if result ~= nil  then
-        for k,v in pairs(result) do
-            v.SetActive(true)
-            YandereNext.Tools.SetAllChildren(v,true,false)
-        end
-    end
-end
-   
-function SchoolScene.FindYanAndOsoro()
-    -- THIS IS WHERE IT FINDS YANDERE CHAN AND OSORO
-    Osoro = GameObject.Find("DisabledCharacters/FakeOsoro")
-    YanChan = GameObject.Find("YandereChan")
-    --Osoro = GetStudent(1)
-end
 
 function SchoolScene.RetargetDem()
-    Debug.Log("Started retargetting")
-    local result = ModelRetarget.RetargetModel(Osoro,YanChan,"Hips")
-    SetHairstyle(0)
-    Debug.Log("Result is " .. result)
+    Debug.Log("Started retargeting")
+    ModelRetarget.UpdateRenderers(YanChan)
+    ModelRetarget.UpdateRenderers(Senpai)
+    local s = Object.Instantiate(Senpai)
+    local y = Object.Instantiate(YanChan)
+    ModelRetarget.DisableScripts(y)
+    ModelRetarget.DisableScripts(s)
+    local senpai_hips = s.transform.Find("Character/PelvisRoot/Hips")
+    local yanchan_hips = YanChan.transform.Find("Character/PelvisRoot/Hips")
+    ModelRetarget.DisableRenderers(YanChan)
+    ModelRetarget.DisableStaticRenderers(Senpai)
+    ModelRetarget.RetargetModel(senpai_hips.gameObject,yanchan_hips.gameObject)
+    
+    local yan2_hips = y.transform.Find("Character/PelvisRoot/Hips")
+    local sen2_hips = Senpai.transform.Find("Character/PelvisRoot/Hips")
+    ModelRetarget.DisableRenderers(Senpai)
+    ModelRetarget.DisableStaticRenderers(Senpai)
+    ModelRetarget.RetargetModel(yan2_hips.gameObject,sen2_hips.gameObject)
+   -- SetHairstyle(0)
 end
 
 
 
 function SchoolScene.Start()
-    SchoolScene.ActivateSecretCharacters()
-    SchoolScene.FindYanAndOsoro()
-    SchoolScene.RetargetDem()
-    SetPersona(2)
+    YanChan = GameObject.Find("YandereChan")
+    local gloves = YanChan.transform.Find("RiggedGlovesAttacher")
+    Object.Destroy(gloves.gameObject)
 end
 
+local done = false
+
 function SchoolScene.Update()
-    
+    if done == false then
+        if Senpai == null then
+            Senpai = GetStudent(1)
+        else
+            done = true
+            SchoolScene.RetargetDem()
+        end
+    end
    -- PrintInfo()
 end
 
