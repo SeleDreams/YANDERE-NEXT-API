@@ -4,6 +4,7 @@ function TitleScene.Awake()
 end
 
 function TitleScene.Start()
+   
 end
 
 function TitleScene.Update()
