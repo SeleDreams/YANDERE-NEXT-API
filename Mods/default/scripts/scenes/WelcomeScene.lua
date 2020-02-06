@@ -5,7 +5,7 @@ function WelcomeScene.Awake()
 end
 
 function WelcomeScene.Start()
-  Localizer.StartLocalizer()
+ Localizer.StartLocalizer()
 end
 
 function WelcomeScene.Update()

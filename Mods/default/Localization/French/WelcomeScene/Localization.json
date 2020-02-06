@@ -1,0 +1,7 @@
+[
+    {
+        "LOCALIZATION_COMMENT": "----------WELCOME SCENE-----------",
+        "{REGEX}=^Welcome to(.+)!$": "Bienvenue dans ${MATCH1}!",
+        "Press any button to begin!": "Appuyez sur n'importe quelle touche pour demarrer!"
+    }
+]

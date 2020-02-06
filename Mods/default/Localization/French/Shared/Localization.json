@@ -1,0 +1,21 @@
+[
+    {
+        "LOCALIZATION_COMMENT": "-----------GENERAL-------------",
+        "YANDERE": "YANDERE",
+        "SIMULATOR": "SIMULATOR",
+        "MONDAY": "LUNDI",
+        "TUESDAY": "MARDI",
+        "WEDNESDAY": "MERCREDI",
+        "THURSDAY": "JEUDI",
+        "FRIDAY": "VENDREDI",
+        "SATURDAY": "SAMEDI",
+        "SUNDAY": "DIMANCHE",
+        "{REGEX}=^(.*)February(.*)$": "${MATCH1}Fevrier${MATCH2}",
+        "{REGEX}=^\\$(.*)\\.(.*)$" : "€${MATCH1}.${MATCH2}",
+        "{REGEX}=^(\\d):(\\d\\d) AM$": "${MATCH1}H${MATCH2} DU MATIN",
+        "{REGEX}=^(\\d):(\\d\\d) PM$": "${MATCH1}H${MATCH2} APRES-MIDI",
+        "BEFORE CLASS": "AVANT LE DEBUT DES COURS",
+        "AFTER SCHOOL": "APRES LA FIN DES COURS",
+        "AT HOME" : "A LA MAISON"
+    }
+]

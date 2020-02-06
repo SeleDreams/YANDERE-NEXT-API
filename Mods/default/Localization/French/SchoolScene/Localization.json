@@ -1,0 +1,29 @@
+[
+    {
+        "{REGEX}=^This is not an official demo\\. This is a debug build for testing\\. This build is from (.*) (\\d)(.*).$": "Ceci n'est pas une démo officielle. Il s'agit d'une version de test. Cette version date du ${MATCH2} ${MATCH1}.",
+       
+        "BEFORE CLASS": "AVANT LE DEBUT DES COURS",
+        "CLASS TIME" :  "HEURES DE COURS",
+        "AFTER SCHOOL": "APRES LA FIN DES COURS",
+
+        
+        "What the hell is wrong with you?! Why are you acting so weird?!": "Qu'est-ce qui ne va pas chez toi ?! Pourquoi t'es si bizarre ?!",
+        "Is someone there?": "Il y a quelqu'un ?",
+        "...Ah!": "Ah !",
+        "It's you...": "C'est toi...",
+        "...Why have you come here?": "...Pourquoi es-tu venue ?",
+        "Have you come here to taunt me?": "Es-tu venue ici pour me narguer ?",
+        "Do you even know who I am?": "Sais-tu au moins qui je suis ?",
+        "I know who you are.": "Je sais qui tu es.",
+        "I know WHAT you are.": "Je sais CE QUE tu es.",
+        "My father won't allow me to attend school while you are...": "Mon père ne m'autorisera pas à être présente tant que tu seras...",
+        "...\"active\".": "...\"active\".",
+        "He has a reason for tolerating your presence at this school.": "Il a une raison pour tolérer ta présence dans cet établissement.",
+        "I don't.": "Je n'en ai aucune.",
+        "You are a vulgar creature that is only allowed to exist because you serve a purpose.": "Tu es une vile créature uniquement autorisée à exister car tu as une utilité",
+        "If it was my decision, then every last one of you would be exterminated.": "Si j'avais le choix, je vous aurais déjà tous exterminés.",
+        "Have fun while you can.": "Amuse-toi tant que tu le peux.",
+        "If you and I ever cross paths...": "Si nous nous croisons un jour toi et moi...",
+        "...you're going to have a bad time.": "...Tu vas passer un mauvais quart d'heure."
+    }
+]
